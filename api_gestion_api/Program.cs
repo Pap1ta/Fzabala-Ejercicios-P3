@@ -1,8 +1,21 @@
 using dao_library;
+using dao_library.entity_framework;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Evita errores de ciclos al serializar relaciones (Student <-> Course, Player <-> Team)
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
+
+// Entity Framework Core con MySQL (Pomelo)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Falta la cadena de conexión 'DefaultConnection' en appsettings.Development.json");
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddScoped<StudentDAO>();
 builder.Services.AddScoped<CourseDAO>();
 builder.Services.AddScoped<ActivityDAO>();
