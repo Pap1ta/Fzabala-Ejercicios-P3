@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="api_gestion_api/api_gestion_api.csproj" />
+  <Project Path="dao_library/dao_library.csproj" />
+  <Project Path="entity_library/entity_library.csproj" />
+</Solution>
