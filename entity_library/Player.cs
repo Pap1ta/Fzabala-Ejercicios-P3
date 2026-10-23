@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace entity_library
+namespace entity_library;
+
+public class Player : Person
 {
-    internal class Player
-    {
-    }
+    public int Numero { get; set; }
+    public List<Team> Teams { get; set; } = new List<Team>();
 }

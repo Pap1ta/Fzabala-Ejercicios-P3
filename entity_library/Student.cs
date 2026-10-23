@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace entity_library
+namespace entity_library;
+
+public class Student : Person
 {
-    internal class Student
-    {
-    }
+    public string File { get; set; } = string.Empty;
+    public List<Course> Courses { get; set; } = new List<Course>();
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace entity_library
+namespace entity_library;
+
+public enum TypeActivity
 {
-    internal class TypeActivity
-    {
-    }
+    Exam,
+    Practical,
+    Project
 }

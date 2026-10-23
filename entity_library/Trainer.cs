@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace entity_library
+namespace entity_library;
+
+public class Trainer : Person
 {
-    internal class Trainer
-    {
-    }
 }
